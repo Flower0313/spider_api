@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>华小量化</title>
+    <script src="../js/echarts.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap-theme.css">
+</head>
+<body>
+<div id="main" style="width: 100%;height:400px;"></div>
+<h3>今日该股信息 <small th:text="${code}"></small></h3>
+<table class="table table-striped" style="width: 100%">
+    <tr>
+        <th>指标名</th>
+        <th>数值</th>
+    </tr>
+    <tr th:each="m:${detail}">
+        <td th:text="${m.getKey()}"></td>
+        <td th:text="${m.getValue()}"></td>
+    </tr>
+</table>
+</body>
+<script type="text/javascript" th:inline="javascript">
+    window.onload = function () {
+        var myChart = echarts.init(document.getElementById('main'));
+        var data = [[${datas}]].split(',');
+        var title = [[${lines}]].split(',');
+
+        // 指定图表的配置项和数据
+        var option = {
+            xAxis: {
+                data: title
+            },
+            yAxis: {},
+            series: [
+                {
+                    data: data,
+                    type: 'line',
+                    label: {
+                        show: true,
+                        position: 'bottom',
+                        textStyle: {
+                            fontSize: 10
+                        }
+                    }
+                }
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+    // 基于准备好的dom，初始化echarts实例
+
+</script>
+</html>
