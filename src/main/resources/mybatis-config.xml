@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--属性值定义 引入外部文件-->
+    <properties resource="db.properties"/>
+    <!-- JavaBean 实现 序列化 接口 -->
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://43.142.75.17:3306/SeniorNursing"/>
+                <property name="username" value="root"/>
+                <property name="password" value="w654646"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--<mappers> 用于注册映射文件或持久层接口，只有注册的映射文件才能使用，共有四种方式都可以完成注册：-->
+    <mappers>
+        <!--使用相对路径注册映射文件-->
+        <mapper resource="com/cueb/mapper/UserMapper.xml"/>
+        <!--注册持久层接口-->
+        <mapper class="com.cueb.mapper.UserMapper"/>
+        <!--注册一个包下的所有持久层接口-->
+        <package name="com.cueb.mapper"/>
+    </mappers>
+</configuration>

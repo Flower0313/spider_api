@@ -120,4 +120,9 @@ public class StockApi {
         return stringMap;
     }
 
+    @RequestMapping("value =/lrx")
+    public String lrx(){
+        return "刘瑞歆老狗给肖华陛下转100元";
+    }
+
 }

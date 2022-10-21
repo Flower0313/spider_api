@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.holden.spider_api.mapper.PicBannerMapper">
+    <select id="allPicBanner" resultType="java.util.Map">
+        SELECT id, pic_name, pic_url
+        FROM `banner_pic`
+    </select>
+</mapper>

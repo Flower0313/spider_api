@@ -11,6 +11,7 @@ public class SpiderApiApplication extends WebMvcConfigurationSupport {
 
     public static void main(String[] args) {
         SpringApplication.run(SpiderApiApplication.class, args);
+        System.out.println("==================== api run ====================");
     }
 
     @Override
